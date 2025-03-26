@@ -1,0 +1,182 @@
+@charset "UTF=8";
+* {
+    font-family: Verdana, Arial, Times New Roman; /*Fontes site */
+}
+
+body {
+    background-color: #101010; /*Cor de fundo pag*/
+    border-radius: 0px;
+}
+
+  /* Cabeçalho */
+  .header-container {
+    display: flex;
+    flex-direction: row; /* elementos organizados em uma linha */
+    justify-content: space-between; /* espaçamento uniforme entre os elementos */
+    background-color: #333;
+    color: #fff;
+    padding: 0px;
+    
+  }
+  
+
+  /*Logo do cabeçalho*/
+  .iconeindex{
+    font-size: 24px;
+    margin: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    padding-left: 500px;
+}
+
+/* Formatação de links */
+a {
+    text-decoration: none;
+}
+a:link {
+    color: rgb(75, 61, 151);
+}
+a:visited {
+    color: #ffffffee;
+}
+a:hover {
+    letter-spacing: 2px;
+}
+a[href="trabalheConosco.html"] {
+    color: rgb(255, 255, 255);
+  }
+
+
+/* Config divs */
+div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+article{
+    width: 30%;
+    margin-bottom: 20px;
+}
+/*estilização do menu e dos itens*/
+.menu{
+	display: flex;
+	top:0%;
+	float:left;
+	padding-right: 80%;
+	margin: 1px rgb(0,0,0);
+}
+
+.menu li  ul{
+	position:absolute;
+	top:37px;
+	left:0;
+	display:none;
+}
+
+.menu li:hover ul, .menu li.over ul{display:block;}
+.menu li ul li{
+	border:1px solid #c0c0c0;
+	display:flex;
+	width:170px;
+}
+
+/* Bloco das motos */
+.harley,
+.bmws1000,
+.xj,
+.biz {
+    width: 300px;
+    height: 400px;
+    flex-direction: column;
+    background-color: #ee7829ee;
+    display: flex;
+    align-items: center;
+}
+
+/* Formata o nome da moto */
+.harley > h3,
+.bmws1000 > h3,
+.xj > h3,
+.biz > h3 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* Centraliza a imagem */
+#harley{
+	align-items: center;
+    margin-top: 14%;
+    border-radius: 0px;
+    width: 300px;
+    height: 700;
+}
+#bmws1000{
+	align-items: center;
+    margin-top: 14%;
+    border-radius: 0px;
+    width: 300px;
+    height: 700px;
+    
+}
+
+#xj{
+	align-items: center;
+    margin-top: 14%;
+    border-radius: 0px;
+    width: 300px;
+    height: 700px;
+}
+#biz{
+	align-items: center;
+    margin-top: 14%;
+    border-radius: 0px;
+    width: 300px;
+    height: 700px;
+}
+/* Formata parágrafos */
+p {
+    display: flex;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 90%;
+}
+/* Botão "Veja mais" */
+.ver-mais {
+    display: flex;
+    margin-bottom: 10%;
+    outline: none;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    align-items: center;
+    background-color: #ee7829ee;
+    border-color: #ffffff;
+    border-radius: 8px;
+}
+/* Rodapé */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #222222;
+    color: white;
+    font-family: sans-serif;
+     justify-content: center;
+    font-size: 23px;
+    align-items: left;
+    padding: 10px;
+	padding-left: 500px;
+	padding-right: 570px;
+}

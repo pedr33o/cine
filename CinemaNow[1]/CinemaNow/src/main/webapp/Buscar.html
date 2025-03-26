@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Busca de Filmes</title>
+</head>
+<body>
+<div class="container">
+  <h1>Busca de Filmes</h1>
+  <input type="text" id="searchInput" placeholder="Digite o nome do filme">
+  <button id="searchButton">Buscar</button>
+  <div id="results"></div>
+</div>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(71, 70, 69);
+    margin: 0;
+    padding: 0;
+  }
+	
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color: #e50914; /* Vermelho da Netflix */
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #e50914; /* Vermelho da Netflix */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #b2070d; /* Tom mais escuro de vermelho */
+  }
+
+  .filme {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    background-color: #000; /* Fundo preto */
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    width: calc(25% - 20px); /* Ajustar conforme necessário */
+    box-sizing: border-box;
+    vertical-align: top;
+    text-align: center;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .filme:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .filme img {
+    max-width: 100%;
+    max-height: 250px; /* Ajustar conforme necessário */
+    margin-bottom: 10px;
+  }
+
+  .filme h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+
+  .filme p {
+    margin: 5px 0;
+    font-size: 0.9em;
+  }
+  
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const resultsDiv = document.getElementById('results');
+
+      const filmes = [
+      {
+        nome: 'Flash',
+        genero: 'Ação',
+        ano: 2022,
+        imagem: 'imagens/flash.jpg',
+        descricao: 'Os mundos colidem quando Flash viaja no tempo para mudar os eventos do passado.<br>No entanto, quando sua tentativa de salvar sua família altera o futuro, ele fica preso em uma realidade na qual o General Zod voltou, ameaçando a aniquilação...'
+      },
+      {
+        nome: 'Besouro Azul',
+        genero: 'Ação',
+        ano: 2021,
+        imagem: 'imagens/besouro_azul.jpg',
+        descricao: 'Besouro Azul é um filme de ação que segue as aventuras de um adolescente que ganha superpoderes...'
+      },
+      {
+        nome: 'Kraven',
+        genero: 'Ação',
+        ano: 2023,
+        imagem: 'imagens/kraven.jpg',
+        descricao: 'Kraven, o Caçador é um personagem de quadrinhos da Marvel Comics e um dos vilões do Homem-Aranha. Criado por Stan Lee e Steve Ditko, seu nome verdadeiro é Sergei Kravinoff.'
+      },
+      {
+        nome: 'Ford Vs Ferrari',
+        genero: 'Ação',
+        ano: 2019,
+        imagem: 'imagens/ford_vs_ferrari.jpg',
+        descricao: 'O projetista Carroll Shelby e o piloto Ken Miles enfrentam a interferência empresarial,<br> as leis da física e os próprios demônios para construir um carro de corrida para a Ford derrotar a hegemonia de Enzo Ferrari nas 24 horas de Le Mans.'
+      },
+      {
+        nome: 'Clube da Luta',
+        genero: 'Drama',
+        ano: 1999,
+        imagem: 'imagens/clubeluta.jpg',
+        descricao: 'Um homem deprimido que sofre de insônia conhece um estranho vendedor <br>chamado Tyler Durden e se vê morando em uma casa suja depois que seu perfeito apartamento é destruído. A dupla forma um clube com regras rígidas onde homens lutam..'
+      },
+      {
+        nome: 'El Caminho',
+        genero: 'Drama',
+        ano: 2019,
+        imagem: 'imagens/el_caminho.jpg',
+        descricao: 'Assombrado pelo passado, o fugitivo Jesse Pinkman tenta encontrar um lugar seguro para viver.'
+      },
+       {
+        nome: 'Interestelar',
+        genero: 'Ficção',
+        ano: 2014,
+        imagem: 'imagens/inter.jpg',
+        descricao: 'As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie...'
+      }
+      // Adicione mais filmes com descrições aqui
+    ];
+
+    searchButton.addEventListener('click', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      resultsDiv.innerHTML = '';
+
+      const filteredFilmes = filmes.filter(filme => 
+        filme.nome.toLowerCase().includes(searchTerm)
+      );
+
+      filteredFilmes.forEach(filme => {
+        const filmeDiv = document.createElement('div');
+        filmeDiv.classList.add('filme');
+        if (filme.imagem) {
+          const imgElement = document.createElement('img');
+          imgElement.src = filme.imagem;
+          imgElement.alt = filme.nome;
+          imgElement.classList.add('filme-imagem');
+          filmeDiv.appendChild(imgElement);
+        }
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('filme-info');
+        infoDiv.innerHTML = `
+          <h2>${filme.nome}</h2>
+          <p>Gênero: ${filme.genero}</p>
+          <p>Ano: ${filme.ano}</p>
+          <p class="filme-descricao">${filme.descricao}</p>
+        `;
+        filmeDiv.appendChild(infoDiv);
+        resultsDiv.appendChild(filmeDiv);
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+@charset "UTF=8";
+* {
+  font-family: Verdana, Arial, Times New Roman;
+}
+body {
+  background-color: #000000;
+}
+/* Cabeçalho */
+.header-container {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+/* Flexbox para organizar os elementos do cabeçalho em linhas e colunas */
+.header-container {
+  display: flex;
+  flex-direction: row; /* elementos organizados em uma linha */
+  justify-content: space-between; /* espaçamento uniforme entre os elementos */
+  align-items: center;
+}
+.iconeindex{
+  font-size: 24px;
+  margin: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Formatação de links */
+a {
+  text-decoration: none;
+}
+a:link {
+  color: rgb(255, 255, 255);
+}
+a:visited {
+  color: #ffffff;
+}
+
+
+/* Config divs */
+div {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  display: flex;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-size: 90%;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 97%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #4a4a61;
+}
+
+/*Div esquerda*/
+.left{
+  margin-left: 45px;
+  float: left;
+  flex-basis: 50%;
+  width: 50px;
+  height: 700px;
+}
+.left img{
+  max-width: 100%;
+}
+
+/*Div direita*/
+.right{
+  font-size: medium;
+  float: right;
+  padding-right: 20px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: lef;
+  align-self: flex-start;
+}
+
+.right p{
+  color: #101010;
+  text-align: left;
+  font-size: medium;
+}
+
+/* Rodapé */
+footer {
+  display: flex;
+  flex-direction: row;
+  background-color: #222222;
+  color: white;
+  font-family: sans-serif;
+  justify-content:center;
+  font-size: 23px;
+}
+footer p{
+flex-direction: row;
+align-items: center;
+text-align: center;
+right: auto;
+left: auto;
+}
